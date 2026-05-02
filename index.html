@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth antialiased bg-[#050505] text-[#F8F9FA]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Shin clinic 銀座 | クマ治療専門 美容外科 開業キャンペーン</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/@phosphor-icons/web" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --gold-primary: #C8A97E;
+            --gold-light: #E0C9A3;
+            --bg-deep: #050505;
+            --bg-elevated: #111112;
+            --border-subtle: rgba(200, 169, 126, 0.15);
+        }
+
+        body { font-family: 'Zen Kaku Gothic New', sans-serif; font-feature-settings: "palt"; }
+        .font-mincho { font-family: 'Shippori Mincho', serif; font-feature-settings: "palt"; }
+        .font-display { font-family: 'Playfair Display', serif; }
+
+        .text-gold { color: var(--gold-primary); }
+        .bg-gold { background-color: var(--gold-primary); }
+        .border-gold { border-color: var(--border-subtle); }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF 0%, var(--gold-light) 50%, var(--gold-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gold-glow {
+            box-shadow: 0 0 40px -10px rgba(200, 169, 126, 0.2);
+        }
+
+        .glass-panel {
+            background: rgba(17, 17, 18, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(200, 169, 126, 0.2);
+        }
+
+        .vertical-rl {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        .edge-refraction {
+            box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.1),
+                        inset 0 0 0 1px rgba(255,255,255,0.02);
+        }
+
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(30px) scale(0.98);
+            transition: opacity 1.2s cubic-bezier(0.165, 0.84, 0.44, 1),
+                        transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal-element.is-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-deep); }
+        ::-webkit-scrollbar-thumb { background: #222; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--gold-primary); }
+
+        .noise-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none; z-index: 9999; opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom, 16px); }
+    </style>
+</head>
+<body class="relative bg-[#050505] overflow-x-hidden selection:bg-[#C8A97E] selection:text-white pb-24 md:pb-0">
+    <div class="noise-overlay"></div>
+
+    <!-- Floating Top Nav -->
+    <header class="fixed top-0 w-full z-50 glass-panel border-b-0 transition-all duration-500" id="navbar">
+        <div class="max-w-[1400px] mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="assets/logo.png" alt="Shin clinic" class="h-8 w-auto">
+                <div class="h-4 w-[1px] bg-white/20 hidden md:block"></div>
+                <span class="text-xs font-light tracking-widest text-zinc-400 hidden md:block">GINZA TOKYO</span>
+            </div>
+
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wider">
+                <a href="#about" class="hover:text-gold transition-colors duration-300">当院について</a>
+                <a href="#types" class="hover:text-gold transition-colors duration-300">クマの種類</a>
+                <a href="#menu" class="hover:text-gold transition-colors duration-300">施術・料金</a>
+                <a href="#doctor" class="hover:text-gold transition-colors duration-300">ドクター</a>
+                <a href="https://reservation.medical-force.com/c/6db3a818c23d4622bfce2e765c2ba11a" target="_blank"
+                   class="bg-white/5 hover:bg-white/10 text-white border border-white/10 px-6 py-2 rounded-full backdrop-blur-sm transition-all duration-300 hover:border-gold/50 flex items-center gap-2">
+                    <i class="ph ph-calendar-check text-gold"></i> 無料カウンセリング予約
+                </a>
+            </div>
+
+            <button class="md:hidden text-zinc-300 p-2">
+                <i class="ph ph-list text-2xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[100dvh] flex items-center justify-center pt-16 overflow-hidden bg-black">
+        <div class="absolute inset-0 z-0 select-none">
+            <img src="assets/doctor/sakai_01.jpg"
+                 alt="Shin clinic 院長 酒井新介先生"
+                 class="w-full h-full object-cover object-top opacity-70"
+                 id="hero-parallax">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-[#050505]/60 via-transparent to-[#050505]/20"></div>
+            <div class="absolute top-[20%] left-[10%] w-[40vw] h-[40vw] rounded-full bg-[#C8A97E] opacity-[0.04] blur-[100px]"></div>
+        </div>
+
+        <div class="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-8 mt-8 md:mt-0">
+            <!-- Campaign Badge -->
+            <div class="flex justify-center md:justify-start mb-8 reveal-element">
+                <span class="inline-flex items-center gap-2 bg-red-900/50 border border-red-500/40 text-red-300 text-xs px-4 py-2 rounded-full tracking-widest animate-pulse">
+                    <i class="ph-fill ph-seal-check"></i> 開業記念キャンペーン実施中 — 最大70% OFF
+                </span>
+            </div>
+
+            <!-- Mobile Typography -->
+            <div class="md:hidden flex flex-col items-start reveal-element">
+                <p class="text-gold font-display tracking-[0.2em] text-xs mb-4">SPECIALIST IN UNDER-EYE TREATMENT</p>
+                <h1 class="font-mincho text-4xl leading-[1.35] text-white">
+                    同じクマは、<br>
+                    <span class="gold-gradient-text">ひとつもない。</span>
+                </h1>
+                <p class="mt-5 text-zinc-400 text-sm leading-relaxed">
+                    だから、あなたのクマに、答えを出せる。
+                </p>
+                <div class="mt-8 flex flex-col gap-2 text-sm text-zinc-500">
+                    <div class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-gold/70"></i> 形成外科15年 × 美容外科10年</div>
+                    <div class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-gold/70"></i> 目元施術 2,000件超</div>
+                    <div class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-gold/70"></i> 日本形成外科学会認定専門医 / 医学博士</div>
+                </div>
+            </div>
+
+            <!-- Desktop Typography -->
+            <div class="hidden md:block reveal-element">
+                <p class="text-gold font-display tracking-[0.25em] text-sm mb-6">SPECIALIST IN UNDER-EYE TREATMENT — GINZA TOKYO</p>
+                <h1 class="font-mincho text-[5.5rem] leading-[1.1] text-white mb-8">
+                    同じクマは、<br>
+                    <span class="gold-gradient-text">ひとつもない。</span>
+                </h1>
+                <p class="text-zinc-300 text-lg font-mincho leading-relaxed mb-10 max-w-xl">
+                    だから、あなたのクマに、答えを出せる。
+                </p>
+                <div class="flex gap-8 text-sm text-zinc-400">
+                    <div class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-gold/80 text-base"></i> 形成外科15年 × 美容外科10年</div>
+                    <div class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-gold/80 text-base"></i> 目元施術 2,000件超</div>
+                    <div class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-gold/80 text-base"></i> 医学博士 / 形成外科専門医</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-20 opacity-60">
+            <span class="text-[10px] font-display tracking-[0.3em] text-zinc-400 uppercase">Scroll</span>
+            <div class="w-[1px] h-12 bg-gradient-to-b from-gold to-transparent"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="relative py-20 md:py-32 bg-[#050505] z-10 border-t border-white/5">
+        <div class="max-w-[1200px] mx-auto px-6 md:px-8">
+            <div class="grid md:grid-cols-3 gap-8 reveal-element">
+                <div class="glass-panel p-8 rounded-2xl text-center">
+                    <div class="font-display text-5xl text-gold mb-2">15<span class="text-2xl">年</span></div>
+                    <div class="text-sm text-zinc-400 leading-relaxed">形成外科専門医として<br>積み重ねた臨床経験</div>
+                </div>
+                <div class="glass-panel p-8 rounded-2xl text-center reveal-element delay-100">
+                    <div class="font-display text-5xl text-gold mb-2">2,000<span class="text-2xl">件+</span></div>
+                    <div class="text-sm text-zinc-400 leading-relaxed">目元・クマ治療の<br>豊富な施術実績</div>
+                </div>
+                <div class="glass-panel p-8 rounded-2xl text-center reveal-element delay-200">
+                    <div class="font-display text-5xl text-gold mb-2">70<span class="text-2xl">%</span><span class="text-2xl text-zinc-400">OFF</span></div>
+                    <div class="text-sm text-zinc-400 leading-relaxed">開業記念キャンペーン<br>特別価格を実施中</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5 Types of Kuma -->
+    <section id="types" class="relative py-24 md:py-40 bg-[#050505] z-10 border-t border-white/5">
+        <div class="max-w-[1400px] mx-auto px-6 md:px-8">
+
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-16 md:mb-24 gap-6 reveal-element">
+                <div>
+                    <h2 class="font-display text-gold tracking-[0.1em] text-sm uppercase mb-2">Diagnosis</h2>
+                    <h3 class="font-mincho text-3xl md:text-5xl text-white">あなたのクマは、どのタイプ？</h3>
+                </div>
+                <p class="text-zinc-400 text-sm md:text-base max-w-md leading-relaxed">
+                    クマには主に5つの種類があり、原因も治療法も全く異なります。<br class="hidden md:block">
+                    Shin clinicでは、精密診断で最適なアプローチを導き出します。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
+
+                <!-- 黒クマ -->
+                <div class="md:col-span-8 p-8 md:p-12 glass-panel rounded-[1.5rem] relative group overflow-hidden reveal-element">
+                    <div class="absolute top-0 right-0 p-8 opacity-10 font-display text-8xl text-white pointer-events-none group-hover:scale-110 transition-transform duration-700">01</div>
+                    <div class="relative z-10">
+                        <span class="inline-block px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-zinc-300 tracking-wider mb-4">最も多いお悩み</span>
+                        <h4 class="font-mincho text-3xl md:text-4xl text-white mb-2">黒クマ <span class="text-lg text-zinc-500 font-sans tracking-widest ml-2">Black</span></h4>
+                        <p class="text-gold text-sm mb-6">原因：眼窩脂肪の突出による「影」</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed max-w-lg mb-6">
+                            加齢や骨格が原因で目の下の脂肪が突出し、下に影ができる状態。メイクで隠せない物理的な段差です。
+                            <span class="text-white mt-2 block">推奨治療：リガメントリリース / ハムラ / 注入治療</span>
+                        </p>
+                        <div class="w-full h-1 bg-gradient-to-r from-gold/50 to-transparent"></div>
+                    </div>
+                </div>
+
+                <!-- 青クマ -->
+                <div class="md:col-span-4 p-8 glass-panel rounded-[1.5rem] relative reveal-element delay-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-baseline justify-between mb-2">
+                            <h4 class="font-mincho text-2xl text-white">青クマ</h4>
+                            <span class="font-display text-zinc-600 text-xl">02</span>
+                        </div>
+                        <p class="text-[#899FCC] text-sm mb-4">血行不良</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed">
+                            疲労・寝不足・スマホ過多による血行不良が原因。皮膚が薄いため静脈が透けて見えます。
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/5 text-xs text-zinc-500">リガメントリリース / ハムラ / 肌育注射</div>
+                </div>
+
+                <!-- 茶クマ -->
+                <div class="md:col-span-4 p-8 glass-panel rounded-[1.5rem] relative reveal-element flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-baseline justify-between mb-2">
+                            <h4 class="font-mincho text-2xl text-white">茶クマ</h4>
+                            <span class="font-display text-zinc-600 text-xl">03</span>
+                        </div>
+                        <p class="text-[#C6A87C] text-sm mb-4">色素沈着</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed">
+                            目をこする癖やメイク摩擦、紫外線ダメージによる色素沈着が主な原因。
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/5 text-xs text-zinc-500">IPL / レーザー / LDM</div>
+                </div>
+
+                <!-- 赤クマ -->
+                <div class="md:col-span-4 p-8 glass-panel rounded-[1.5rem] relative reveal-element delay-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-baseline justify-between mb-2">
+                            <h4 class="font-mincho text-2xl text-white">赤クマ</h4>
+                            <span class="font-display text-zinc-600 text-xl">04</span>
+                        </div>
+                        <p class="text-[#CC6A6A] text-sm mb-4">静脈うっ血</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed">
+                            脂肪が眼輪筋を圧迫し、筋肉の赤みが皮膚から透けて赤紫っぽく見える状態。
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/5 text-xs text-zinc-500">脱脂 / ハムラ</div>
+                </div>
+
+                <!-- 灰クマ -->
+                <div class="md:col-span-4 p-8 flex flex-col justify-center reveal-element delay-200 border-l border-gold/30 pl-8">
+                    <h4 class="font-mincho text-xl text-white mb-2">灰クマ <span class="font-display text-zinc-600 ml-2">05</span></h4>
+                    <p class="text-[#aaaaaa] text-sm mb-3">皮膚のたるみ</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">
+                        加齢による皮膚のたるみが原因。多くの方は複数タイプが混在しており、専門医による正確な診断が必須です。
+                    </p>
+                    <div class="mt-4 pt-4 border-t border-white/5 text-xs text-zinc-500">除皺（皮膚切除）/ 表ハムラ</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Treatment Menu & Pricing -->
+    <section id="menu" class="relative py-24 md:py-40 bg-[#0a0a0b] z-10">
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-[30%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-[#C8A97E] opacity-[0.02] blur-[120px]"></div>
+        </div>
+
+        <div class="max-w-[1200px] mx-auto px-6 md:px-8 relative z-10">
+
+            <div class="text-center mb-16 md:mb-20 reveal-element">
+                <span class="inline-block py-1 px-4 border border-gold/30 rounded-full text-gold text-xs tracking-[0.2em] mb-6">OPENING CAMPAIGN</span>
+                <h2 class="font-mincho text-4xl md:text-5xl text-white mb-4">開業記念 特別料金</h2>
+                <p class="text-zinc-400 text-sm md:text-base leading-relaxed">
+                    全顔モニター対象 — 通常価格より最大<span class="text-gold font-bold">70% OFF</span>
+                </p>
+            </div>
+
+            <div class="space-y-4 md:space-y-5">
+
+                <!-- 脱脂 -->
+                <div class="group bg-[#111112] border border-white/5 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row gap-6 justify-between hover:border-gold/30 transition-all duration-500 reveal-element">
+                    <div class="flex-1">
+                        <h3 class="font-mincho text-xl md:text-2xl text-white mb-1">脱脂</h3>
+                        <p class="text-zinc-500 text-sm">まぶた裏側から眼窩脂肪を取り除く基本治療。傷跡が表面に残りません。</p>
+                    </div>
+                    <div class="flex items-center gap-6 md:gap-8">
+                        <div class="text-right">
+                            <div class="text-xs text-zinc-600 mb-1">通常価格</div>
+                            <div class="text-zinc-500 line-through font-display text-base">¥330,000</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-[10px] text-red-400 mb-1 tracking-wider">キャンペーン価格</div>
+                            <div class="font-display text-3xl text-white group-hover:text-gold transition-colors">¥99,000</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- リガメントリリース (RECOMMENDED) -->
+                <div class="group relative border border-gold/40 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row gap-6 justify-between shadow-[0_0_40px_-10px_rgba(200,169,126,0.15)] reveal-element overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-gold/5 via-transparent to-transparent pointer-events-none"></div>
+                    <div class="absolute top-0 right-6 bg-gold text-black text-[10px] font-bold px-4 py-1.5 rounded-b-md tracking-widest z-10">RECOMMENDED</div>
+                    <div class="flex-1 relative z-10 pt-2 md:pt-0">
+                        <h3 class="font-mincho text-xl md:text-2xl text-white mb-1">リガメントリリース</h3>
+                        <p class="text-zinc-400 text-sm">目の下の靭帯を解放し、たるみ・影・膨らみを根本改善する高度な術式。</p>
+                    </div>
+                    <div class="flex items-center gap-6 md:gap-8 relative z-10">
+                        <div class="text-right">
+                            <div class="text-xs text-zinc-600 mb-1">通常価格</div>
+                            <div class="text-zinc-500 line-through font-display text-base">¥440,000</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-[10px] text-gold mb-1 tracking-wider">キャンペーン価格</div>
+                            <div class="font-display text-3xl text-gold">¥220,000</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 裏ハムラ -->
+                <div class="group bg-[#111112] border border-white/5 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row gap-6 justify-between hover:border-gold/30 transition-all duration-500 reveal-element">
+                    <div class="flex-1">
+                        <h3 class="font-mincho text-xl md:text-2xl text-white mb-1">裏ハムラ法</h3>
+                        <p class="text-zinc-500 text-sm">結膜側からアプローチ。膨らみの脂肪を凹みに移動させ自然な若返りを。</p>
+                    </div>
+                    <div class="flex items-center gap-6 md:gap-8">
+                        <div class="text-right">
+                            <div class="text-xs text-zinc-600 mb-1">通常価格</div>
+                            <div class="text-zinc-500 line-through font-display text-base">¥550,000</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-[10px] text-red-400 mb-1 tracking-wider">キャンペーン価格</div>
+                            <div class="font-display text-3xl text-white group-hover:text-gold transition-colors">¥275,000</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 除皺 -->
+                <div class="group bg-[#111112] border border-white/5 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row gap-6 justify-between hover:border-gold/30 transition-all duration-500 reveal-element">
+                    <div class="flex-1">
+                        <h3 class="font-mincho text-xl md:text-2xl text-white mb-1">除皺（皮膚切除）</h3>
+                        <p class="text-zinc-500 text-sm">皮膚のたるみを直接切除。灰クマ・皮膚型たるみに有効な術式。</p>
+                    </div>
+                    <div class="flex items-center gap-6 md:gap-8">
+                        <div class="text-right">
+                            <div class="text-xs text-zinc-600 mb-1">通常価格</div>
+                            <div class="text-zinc-500 line-through font-display text-base">¥495,000</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-[10px] text-red-400 mb-1 tracking-wider">キャンペーン価格</div>
+                            <div class="font-display text-3xl text-white group-hover:text-gold transition-colors">¥247,500</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 除皺＋脂肪切除 -->
+                <div class="group bg-[#111112] border border-white/5 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row gap-6 justify-between hover:border-gold/30 transition-all duration-500 reveal-element">
+                    <div class="flex-1">
+                        <h3 class="font-mincho text-xl md:text-2xl text-white mb-1">除皺 ＋ 脂肪切除</h3>
+                        <p class="text-zinc-500 text-sm">皮膚切除と脂肪除去を同時に行うコンビネーション治療。</p>
+                    </div>
+                    <div class="flex items-center gap-6 md:gap-8">
+                        <div class="text-right">
+                            <div class="text-xs text-zinc-600 mb-1">通常価格</div>
+                            <div class="text-zinc-500 line-through font-display text-base">¥550,000</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-[10px] text-red-400 mb-1 tracking-wider">キャンペーン価格</div>
+                            <div class="font-display text-3xl text-white group-hover:text-gold transition-colors">¥275,000</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 表ハムラ -->
+                <div class="group bg-[#111112] border border-white/5 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row gap-6 justify-between hover:border-gold/30 transition-all duration-500 reveal-element">
+                    <div class="flex-1">
+                        <h3 class="font-mincho text-xl md:text-2xl text-white mb-1">表ハムラ法</h3>
+                        <p class="text-zinc-500 text-sm">下まぶた皮膚側からアプローチ。皮膚たるみも同時に解消する高度術式。</p>
+                    </div>
+                    <div class="flex items-center gap-6 md:gap-8">
+                        <div class="text-right">
+                            <div class="text-xs text-zinc-600 mb-1">通常価格</div>
+                            <div class="text-zinc-500 line-through font-display text-base">¥660,000</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-[10px] text-red-400 mb-1 tracking-wider">キャンペーン価格</div>
+                            <div class="font-display text-3xl text-white group-hover:text-gold transition-colors">¥330,000</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="text-center text-zinc-600 text-xs mt-8">※全顔モニター対象 / 価格はすべて税込 / キャンペーン期間中のみ</p>
+        </div>
+    </section>
+
+    <!-- Doctor Profile -->
+    <section id="doctor" class="relative py-24 md:py-0 bg-[#050505] z-10 border-t border-white/5 md:min-h-[90vh] flex items-center">
+        <div class="max-w-[1400px] w-full mx-auto px-6 md:px-0 flex flex-col md:flex-row items-center">
+
+            <!-- Doctor Images -->
+            <div class="w-full md:w-1/2 h-[55vw] md:h-[90vh] relative reveal-element overflow-hidden flex gap-1">
+                <img src="assets/doctor/sakai_02.jpg"
+                     alt="院長 酒井新介 先生"
+                     class="w-2/3 h-full object-cover object-top brightness-100">
+                <img src="assets/doctor/sakai_03.jpg"
+                     alt="院長 酒井新介 先生"
+                     class="w-1/3 h-full object-cover object-top brightness-100">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent md:hidden"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#050505] hidden md:block"></div>
+            </div>
+
+            <!-- Content -->
+            <div class="w-full md:w-1/2 md:pl-16 lg:pl-24 pt-12 md:pt-0 relative z-10 reveal-element delay-100">
+                <h2 class="font-display text-gold tracking-[0.2em] text-sm uppercase mb-6 flex items-center gap-4">
+                    <span class="w-8 h-[1px] bg-gold"></span> Director's Profile
+                </h2>
+
+                <h3 class="font-mincho text-3xl md:text-4xl text-white leading-[1.4] mb-4">
+                    解剖学15年の知見が、<br>
+                    ミリ単位の美を生む。
+                </h3>
+
+                <p class="text-zinc-400 text-sm leading-loose max-w-lg mb-4">
+                    「同じクマは、ひとつもない」——これが酒井先生の哲学です。<br>
+                    脂肪の量・配置・皮膚の厚さ・骨格形状は患者様ごとに完全に異なります。大手美容外科での豊富な経験と、形成外科専門医の精緻な技術で、あなただけの答えを導き出します。
+                </p>
+
+                <div class="glass-panel p-6 rounded-xl border-l-2 border-l-gold block max-w-lg">
+                    <p class="text-white font-mincho text-2xl mb-1">酒井 新介 <span class="text-sm text-zinc-400 font-sans">院長</span></p>
+                    <p class="text-zinc-500 font-display text-xs tracking-widest mb-5">DR. SHINSUKE SAKAI</p>
+                    <ul class="text-sm text-zinc-400 space-y-2">
+                        <li class="flex items-start gap-2"><div class="w-1 h-1 bg-gold rounded-full mt-1.5 shrink-0"></div> 平成14年 東京慈恵会医科大学 卒業</div></li>
+                        <li class="flex items-start gap-2"><div class="w-1 h-1 bg-gold rounded-full mt-1.5 shrink-0"></div> 平成24年 東京厚生年金病院 形成外科部長</div></li>
+                        <li class="flex items-start gap-2"><div class="w-1 h-1 bg-gold rounded-full mt-1.5 shrink-0"></div> 平成29年 聖心美容クリニック</li>
+                        <li class="flex items-start gap-2"><div class="w-1 h-1 bg-gold rounded-full mt-1.5 shrink-0"></div> 平成30年 城本クリニック</li>
+                        <li class="flex items-start gap-2"><div class="w-1 h-1 bg-gold rounded-full mt-1.5 shrink-0"></div> 令和2年 城本クリニック高崎院 院長</li>
+                        <li class="flex items-start gap-2"><div class="w-1 h-1 bg-gold rounded-full mt-1.5 shrink-0"></div> 令和3〜4年 東京イセアクリニック 技術指導医</li>
+                    </ul>
+                    <div class="mt-5 pt-4 border-t border-white/5 flex flex-wrap gap-2">
+                        <span class="text-[10px] bg-white/5 border border-white/10 text-zinc-400 px-2 py-1 rounded">医学博士</span>
+                        <span class="text-[10px] bg-white/5 border border-white/10 text-zinc-400 px-2 py-1 rounded">日本形成外科学会認定専門医</span>
+                        <span class="text-[10px] bg-white/5 border border-white/10 text-zinc-400 px-2 py-1 rounded">日本美容外科学会(JSAPS)専門医</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA Section (Desktop) -->
+    <section id="reserve" class="relative py-24 md:py-40 bg-[#0a0a0b] z-10 border-t border-white/5 hidden md:block text-center overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gold/10 via-[#0a0a0b] to-[#050505] pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-3xl mx-auto px-4 reveal-element">
+            <h2 class="font-mincho text-4xl text-white mb-4">まずは、無料カウンセリングへ。</h2>
+            <p class="text-zinc-400 text-sm mb-12 leading-relaxed">
+                開業キャンペーンは期間限定です。<br>専門医が直接診察し、あなたに最適な治療法をご提案します。
+            </p>
+
+            <div class="flex justify-center gap-6">
+                <a href="https://reservation.medical-force.com/c/6db3a818c23d4622bfce2e765c2ba11a" target="_blank"
+                   class="group relative px-10 py-4 bg-white text-black font-bold tracking-widest rounded-full overflow-hidden transition-transform duration-300 hover:scale-105 flex items-center gap-3">
+                    <span class="absolute inset-0 bg-gold translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></span>
+                    <i class="ph ph-calendar-check text-xl relative z-10"></i>
+                    <span class="relative z-10 group-hover:text-white transition-colors duration-300">WEB予約・無料カウンセリング</span>
+                </a>
+
+                <a href="tel:0362630772" class="group px-8 py-4 bg-transparent border border-white/20 text-zinc-300 hover:bg-white/5 font-medium tracking-widest rounded-full transition-all duration-300 flex items-center gap-3">
+                    <i class="ph ph-phone text-xl"></i>
+                    <span>03-6263-0772</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#050505] py-12 border-t border-white/5 relative z-10 pb-32 md:pb-12">
+        <div class="max-w-[1400px] mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center md:items-start gap-8 text-center md:text-left">
+            <div>
+                <img src="assets/logo.png" alt="Shin clinic" class="h-12 w-auto mb-4">
+                <p class="text-zinc-500 text-sm leading-loose">
+                    〒104-0061<br>
+                    東京都中央区銀座1-6-8 DEAR GINZA 5階<br>
+                    診療時間: 10:00〜19:00（不定休）<br>
+                    TEL: <a href="tel:0362630772" class="hover:text-zinc-300 transition-colors">03-6263-0772</a>
+                </p>
+            </div>
+            <div class="text-zinc-600 text-[10px] tracking-widest font-display">
+                &copy; 2025 SHIN CLINIC GINZA. ALL RIGHTS RESERVED.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Fixed Bottom CTA -->
+    <div class="fixed bottom-0 left-0 w-full z-50 md:hidden bg-[#111112]/90 backdrop-blur-xl border-t border-white/10 pb-safe pt-2 px-3 shadow-[0_-10px_20px_rgba(0,0,0,0.5)]">
+        <div class="flex gap-2 mb-2">
+            <a href="https://reservation.medical-force.com/c/6db3a818c23d4622bfce2e765c2ba11a" target="_blank"
+               class="flex-1 bg-white text-black rounded-xl py-4 flex flex-col items-center justify-center active:scale-95 transition-transform">
+                <span class="text-[10px] font-bold text-red-600 mb-0.5">キャンペーン適用</span>
+                <div class="flex items-center gap-1">
+                    <i class="ph ph-calendar-check text-lg"></i>
+                    <span class="font-bold text-sm tracking-widest">WEB予約</span>
+                </div>
+            </a>
+            <a href="tel:0362630772"
+               class="flex-1 bg-zinc-800 text-white rounded-xl py-4 flex flex-col items-center justify-center active:scale-95 transition-transform">
+                <span class="text-[10px] text-zinc-400 mb-0.5">電話でのご相談</span>
+                <div class="flex items-center gap-1">
+                    <i class="ph ph-phone text-lg"></i>
+                    <span class="font-bold text-sm tracking-widest">電話する</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('bg-[#111112]/80', 'border-b', 'border-white/5');
+                    navbar.classList.remove('border-b-0');
+                } else {
+                    navbar.classList.remove('bg-[#111112]/80', 'border-b', 'border-white/5');
+                    navbar.classList.add('border-b-0');
+                }
+            }, { passive: true });
+
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+
+            document.querySelectorAll('.reveal-element').forEach(el => observer.observe(el));
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            const heroParallax = document.getElementById('hero-parallax');
+            if (heroParallax) {
+                window.addEventListener('scroll', () => {
+                    const scrolled = window.pageYOffset;
+                    if (scrolled < window.innerHeight) {
+                        heroParallax.style.transform = `translateY(${scrolled * 0.25}px)`;
+                    }
+                }, { passive: true });
+            }
+        });
+    </script>
+</body>
+</html>
