@@ -110,20 +110,24 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   text-indent: -9999px;
   overflow: hidden;
 }
-.hero-nav-overlay a:last-child {
-  position: relative;
-  overflow: visible;
+.fv-btn-shine {
+  position: absolute;
+  /* FV画像内のボタン位置に合わせる: 右から1-14%、上から1-7% */
+  top: 1%; right: 1%;
+  width: 13%; height: 6%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 6;
+  border-radius: 2px;
 }
-.hero-nav-overlay a:last-child::after {
+.fv-btn-shine::after {
   content: '';
   position: absolute;
-  top: 10%; left: -75%;
-  width: 50%; height: 80%;
-  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.55) 50%, transparent 100%);
+  top: 0; left: -100%;
+  width: 60%; height: 100%;
+  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.5) 50%, transparent 100%);
   transform: skewX(-20deg);
   animation: btn-shine 2.8s ease-in-out infinite;
-  pointer-events: none;
-  overflow: hidden;
 }
 .brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
 .brand-logo {
@@ -1678,6 +1682,8 @@ body.dark .hero-stats { background: rgba(31,26,20,0.6); }
       </div>
     </div>
   </div>
+  <!-- Shine overlay on FV reservation button -->
+  <div class="fv-btn-shine"></div>
   <div class="hero-nav-overlay" aria-label="グローバルナビゲーション">
     <a href="#top" style="flex: 0 0 22%">Shin clinic</a>
     <a href="#types" style="flex: 0 0 11%; margin-left: 21%">クマの種類</a>
