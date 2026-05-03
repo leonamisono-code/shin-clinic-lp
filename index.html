@@ -1463,8 +1463,9 @@ body.dark .hero-stats { background: rgba(31,26,20,0.6); }
 
 
 @media (max-width: 768px) {
-  .hero-fv { display: none; }
+  .hero-fv-wrap, .hero-fv { display: none; }
   .hero-nav-overlay { display: none; }
+  .hero { min-height: 0; padding: 0; }
   .hero-mobile-fallback {
     display: flex !important;
     min-height: 100vh;
@@ -1539,6 +1540,7 @@ body.dark .hero-stats { background: rgba(31,26,20,0.6); }
 @media (min-width: 769px) {
   .hero-mobile-fallback { display: none !important; }
 }
+.hero-mobile-fallback { display: none; }
 
 @media (max-width: 860px) {
   .process-grid {
@@ -1616,10 +1618,11 @@ body.dark .hero-stats { background: rgba(31,26,20,0.6); }
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
-  <picture>
+  <!-- Desktop FV image -->
+  <picture class="hero-fv-wrap">
     <source srcset="assets/fv-hero.webp 1x, assets/fv-hero@2x.webp 2x" type="image/webp">
     <img class="hero-fv" src="assets/fv-hero.png" srcset="assets/fv-hero.png 1x, assets/fv-hero@2x.webp 2x" alt="Shin clinic 銀座 — 形成外科専門医の視点で、目元の悩みに応える。" />
-  
+  </picture>
   <!-- Mobile-only hero fallback -->
   <div class="hero-mobile-fallback">
     <img src="assets/doctor/sakai_01.jpg" alt="院長 酒井新介" class="hero-mobile-img">
@@ -1646,7 +1649,6 @@ body.dark .hero-stats { background: rgba(31,26,20,0.6); }
       </div>
     </div>
   </div>
-</picture>
   <div class="hero-nav-overlay" aria-label="グローバルナビゲーション">
     <a href="#top" style="flex: 0 0 22%">Shin clinic</a>
     <a href="#types" style="flex: 0 0 11%; margin-left: 21%">クマの種類</a>
