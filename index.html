@@ -109,16 +109,21 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   /* invisible, clickable */
   text-indent: -9999px;
   overflow: hidden;
+}
+.hero-nav-overlay a:last-child {
   position: relative;
+  overflow: visible;
 }
 .hero-nav-overlay a:last-child::after {
   content: '';
   position: absolute;
-  top: 15%; left: -75%;
-  width: 50%; height: 70%;
-  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.5) 50%, transparent 100%);
+  top: 10%; left: -75%;
+  width: 50%; height: 80%;
+  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.55) 50%, transparent 100%);
   transform: skewX(-20deg);
   animation: btn-shine 2.8s ease-in-out infinite;
+  pointer-events: none;
+  overflow: hidden;
 }
 .brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
 .brand-logo {
