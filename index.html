@@ -91,17 +91,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   display: flex;
 }
 
-/* ============ FV LOGO OVERLAY ============ */
-.fv-logo-overlay {
-  position: absolute;
-  top: 3.2%; left: 3.5%;
-  z-index: 10;
-  pointer-events: auto;
-}
-.fv-brand .brand-logo { width: 32px; height: 32px; }
-.fv-brand .brand-name .jp { color: #1A1A1A; font-size: 15px; font-weight: 600; }
-.fv-brand .brand-name .en { color: #6B6259; font-size: 10px; letter-spacing: 0.18em; }
-
 /* ============ FV NAV HOTSPOTS ============ */
 .hero { position: relative; }
 .hero-nav-overlay {
@@ -1743,16 +1732,6 @@ body.dark .hero-stats { background: rgba(31,26,20,0.6); }
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
-  <!-- FVロゴオーバーレイ (デスクトップ) -->
-  <div class="fv-logo-overlay">
-    <a href="#top" class="brand fv-brand">
-      <div class="brand-logo"><img src="assets/logo.png?v=2" alt="Shin clinic"></div>
-      <div class="brand-name">
-        <span class="jp">Shin clinic</span>
-        <span class="en">銀座</span>
-      </div>
-    </a>
-  </div>
   <!-- Desktop FV image -->
   <picture class="hero-fv-wrap">
     <source srcset="assets/fv-hero.webp 1x, assets/fv-hero@2x.webp 2x" type="image/webp">
