@@ -122,63 +122,65 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 @keyframes scrollDrop{0%{opacity:0;transform:scaleY(0);transform-origin:top}50%{opacity:1;transform:scaleY(1)}100%{opacity:0}}
 
 /* Mobile hero */
-.hero-mobile{display:none;position:relative;min-height:100svh;overflow:hidden}
-.hero-mobile-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:right top}
+.hero-mobile{display:none;position:relative;min-height:100svh;overflow:hidden;background:#0e0c0a}
+.hero-mobile-img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:right center;
+}
 .hero-mobile-overlay{
   position:absolute;inset:0;
-  background:linear-gradient(to bottom,rgba(0,0,0,.4) 0%,rgba(0,0,0,.28) 40%,rgba(0,0,0,.55) 65%,rgba(0,0,0,.82) 100%);
+  background:
+    linear-gradient(to right, rgba(10,8,6,.92) 0%, rgba(10,8,6,.75) 42%, rgba(10,8,6,.2) 68%, transparent 100%),
+    linear-gradient(to bottom, rgba(0,0,0,.15) 0%, transparent 30%, rgba(0,0,0,.25) 100%);
 }
 .hero-mobile-logo{
-  position:absolute;top:20px;left:20px;z-index:2;
-  display:flex;align-items:center;gap:8px;
+  position:absolute;top:22px;left:22px;z-index:2;
+  display:flex;align-items:center;gap:9px;
 }
-.hero-mobile-logo img{width:28px;height:28px;object-fit:contain;filter:brightness(10)}
+.hero-mobile-logo img{width:26px;height:26px;object-fit:contain;filter:brightness(10)}
 .hero-mobile-logo-text{display:flex;flex-direction:column;gap:1px}
-.hero-mobile-logo-text .name{font-family:var(--font-sc);font-size:14px;font-weight:500;letter-spacing:.08em;color:#fff;line-height:1.2;text-shadow:0 1px 4px rgba(0,0,0,.4)}
-.hero-mobile-logo-text .sub{font-size:9px;letter-spacing:.18em;color:rgba(255,255,255,.72)}
+.hero-mobile-logo-text .name{font-family:var(--font-sc);font-size:13px;font-weight:500;letter-spacing:.1em;color:#fff;line-height:1.2}
+.hero-mobile-logo-text .sub{font-size:9px;letter-spacing:.2em;color:rgba(255,255,255,.55)}
 .hero-mobile-content{
-  position:absolute;bottom:80px;left:0;right:0;
+  position:absolute;bottom:60px;left:0;right:0;
   padding:0 22px;
-  display:flex;flex-direction:column;gap:0;
+  display:flex;flex-direction:column;
+  max-width:72%;
 }
 .hero-mobile-badge{
-  display:inline-block;padding:5px 14px;
+  display:inline-block;padding:4px 12px;
   background:var(--gold);border-radius:2px;
-  font-size:11px;font-weight:600;letter-spacing:.1em;color:#fff;
-  margin-bottom:14px;width:fit-content;
+  font-size:10px;font-weight:600;letter-spacing:.1em;color:#fff;
+  margin-bottom:16px;width:fit-content;
 }
 .hero-mobile-headline{
-  font-family:var(--font-ja);font-size:clamp(24px,7vw,34px);
-  font-weight:500;line-height:1.4;color:#fff;
-  text-shadow:0 1px 8px rgba(0,0,0,.2);
-  margin-bottom:6px;
+  font-family:var(--font-ja);font-size:clamp(22px,6vw,30px);
+  font-weight:500;line-height:1.45;color:#fff;
+  letter-spacing:.03em;
+  margin-bottom:8px;
 }
-.hero-mobile-headline em{color:var(--gold);font-style:normal}
+.hero-mobile-headline em{color:var(--gold-light);font-style:normal}
 .hero-mobile-sub{
-  font-size:13px;color:rgba(255,255,255,.82);
-  line-height:1.7;margin-bottom:22px;
+  font-size:12px;color:rgba(255,255,255,.65);
+  line-height:1.8;margin-bottom:20px;
+  letter-spacing:.02em;
 }
-.hero-mobile-stats{
-  background:rgba(255,255,255,.14);
-  border:1px solid rgba(255,255,255,.25);
-  border-radius:6px;
-  backdrop-filter:blur(8px);
-  overflow:hidden;
+.hero-mobile-divider{
+  width:32px;height:1px;background:var(--gold);margin-bottom:16px;
 }
+.hero-mobile-stats{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
 .hero-mobile-stat{
-  display:flex;align-items:center;gap:10px;
-  padding:12px 16px;font-size:13px;font-weight:500;color:#fff;
-  border-bottom:1px solid rgba(255,255,255,.12);
+  display:flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:500;color:rgba(255,255,255,.85);
 }
-.hero-mobile-stat:last-child{border-bottom:none}
-.hero-mobile-stat svg{width:16px;height:16px;color:var(--gold);flex-shrink:0}
+.hero-mobile-stat svg{width:13px;height:13px;color:var(--gold);flex-shrink:0}
 .hero-mobile-cta{
-  display:flex;align-items:center;justify-content:center;
-  width:100%;padding:16px;margin-top:16px;
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:14px 22px;
   background:linear-gradient(135deg,var(--gold),var(--gold-deep));
-  color:#fff;font-size:14px;font-weight:600;letter-spacing:.1em;
+  color:#fff;font-size:13px;font-weight:600;letter-spacing:.1em;
   border-radius:var(--r);
-  box-shadow:0 6px 20px rgba(139,110,50,.4);
+  box-shadow:0 4px 16px rgba(139,110,50,.45);
   position:relative;overflow:hidden;
 }
 .hero-mobile-cta::after{
@@ -713,9 +715,10 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
       </div>
     </div>
     <div class="hero-mobile-content">
-      <div class="hero-mobile-badge">開業記念キャンペーン 最大70% OFF</div>
+      <div class="hero-mobile-badge">開業記念 最大70% OFF</div>
       <h1 class="hero-mobile-headline">自然に、美しく、<br><em>あなたらしい輝きを。</em></h1>
-      <p class="hero-mobile-sub">銀座から、信頼と技術を。<br>一人ひとりに寄り添う、美容医療を。</p>
+      <p class="hero-mobile-sub">銀座から、信頼と技術を。<br>一人ひとりに寄り添う美容医療を。</p>
+      <div class="hero-mobile-divider"></div>
       <div class="hero-mobile-stats">
         <div class="hero-mobile-stat">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -730,7 +733,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
           <span>医学博士 / 形成外科専門医</span>
         </div>
       </div>
-      <a href="https://reservation.medical-force.com/c/6db3a818c23d4622bfce2e765c2ba11a" target="_blank" class="hero-mobile-cta">無料カウンセリングを予約する →</a>
+      <a href="https://reservation.medical-force.com/c/6db3a818c23d4622bfce2e765c2ba11a" target="_blank" class="hero-mobile-cta">無料カウンセリング予約 →</a>
     </div>
   </div>
 </section>
