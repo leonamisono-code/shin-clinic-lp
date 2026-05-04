@@ -31,23 +31,23 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
 
 <style>
 :root {
-  --primary: #B89968;
-  --primary-deep: #8C6F3E;
-  --gold-soft: #D4B98C;
-  --gold-pale: #EBDFC4;
-  --bg: #FBF9F4;
-  --bg-warm: #F5EFE3;
-  --bg-cream: #F2EBDB;
-  --bg-card: #ffffff;
-  --bg-dark: #1A1612;
-  --bg-darker: #0E0B08;
-  --text: #1F1A15;
+  --primary: #B8974A;
+  --primary-deep: #8B6E32;
+  --gold-soft: #D4B878;
+  --gold-pale: #EDE0C0;
+  --bg: #F8F3EC;
+  --bg-warm: #F2EBE0;
+  --bg-cream: #EDE3D5;
+  --bg-card: #FEFCF8;
+  --bg-dark: #1A1A1A;
+  --bg-darker: #111111;
+  --text: #1A1A1A;
   --text-muted: #6B6259;
-  --line: rgba(140, 111, 62, 0.18);
-  --line-soft: rgba(140, 111, 62, 0.10);
-  --shadow-sm: 0 2px 12px rgba(70, 50, 20, 0.05);
-  --shadow-md: 0 8px 30px rgba(70, 50, 20, 0.08);
-  --shadow-lg: 0 24px 70px rgba(70, 50, 20, 0.14);
+  --line: rgba(184, 151, 74, 0.2);
+  --line-soft: rgba(184, 151, 74, 0.1);
+  --shadow-sm: 0 2px 12px rgba(50, 38, 10, 0.06);
+  --shadow-md: 0 8px 30px rgba(50, 38, 10, 0.09);
+  --shadow-lg: 0 24px 70px rgba(50, 38, 10, 0.13);
 
   --font-heading: 'Shippori Mincho', 'Noto Serif JP', serif;
   --font-body: 'Noto Sans JP', sans-serif;
@@ -537,55 +537,107 @@ section { position: relative; }
 }
 
 /* ============ PROOF NUMBERS ============ */
+/* ============ PROOF / STATS ============ */
 .proof {
-  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-warm) 100%);
-  padding: 110px 48px;
+  background: var(--bg);
+  padding: 0;
 }
-.proof-grid {
+.proof-stats {
   max-width: var(--container);
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 56px 48px;
+  border-bottom: 1px solid var(--line);
 }
-.proof-item {
-  background: var(--bg);
-  padding: 64px 40px;
+.proof-stat-item {
+  flex: 1;
   text-align: center;
-  position: relative;
-  transition: background 0.4s ease;
+  padding: 0 32px;
 }
-.proof-item:hover { background: var(--bg-warm); }
-.proof-icon {
-  width: 36px; height: 36px;
-  margin: 0 auto 24px;
-  color: var(--primary-deep);
-}
-.proof-num {
-  font-family: var(--font-en);
-  font-size: clamp(56px, 6.5vw, 92px);
+.proof-stat-label {
+  font-family: var(--font-heading);
+  font-size: 14px;
   font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+.proof-stat-num {
+  font-family: var(--font-en);
+  font-size: clamp(36px, 4.5vw, 56px);
+  font-weight: 600;
   color: var(--primary-deep);
   line-height: 1;
-  margin-bottom: 24px;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.01em;
 }
-.proof-num .unit {
-  font-size: 0.36em;
+.proof-stat-unit {
+  font-size: 0.45em;
+  font-family: var(--font-heading);
+  font-weight: 500;
   color: var(--text);
-  margin-left: 6px;
+  margin-left: 4px;
   letter-spacing: 0.05em;
-  font-family: var(--font-heading);
-  font-weight: 500;
 }
-.proof-label {
+.proof-stat-div {
+  width: 1px;
+  height: 56px;
+  background: var(--line);
+  flex-shrink: 0;
+}
+/* キャンペーンリボン */
+.campaign-ribbon {
+  background: var(--bg-dark);
+  padding: 36px 48px;
+}
+.campaign-ribbon-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.campaign-ribbon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px; height: 100px;
+  border: 1px solid var(--primary);
+  border-radius: 50%;
   font-family: var(--font-heading);
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 500;
-  line-height: 1.9;
-  color: var(--text);
+  color: var(--primary);
+  letter-spacing: 0.06em;
+  text-align: center;
+  line-height: 1.6;
+  flex-shrink: 0;
+}
+.campaign-ribbon-main {
+  font-family: var(--font-en);
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.campaign-ribbon-num {
+  font-size: 1.4em;
+  color: var(--primary);
+}
+.campaign-ribbon-pct {
+  font-size: 0.7em;
+  color: var(--primary);
+}
+.campaign-ribbon-sub {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.06em;
 }
 
 /* ============ DIAGNOSIS / CLUMA TYPES ============ */
@@ -1280,10 +1332,16 @@ section { position: relative; }
   .section-lead { font-size: 14px; margin-bottom: 56px; }
   .section-title { letter-spacing: 0.04em; }
 
-  .proof { padding: 70px 20px; }
-  .proof-grid { grid-template-columns: 1fr; gap: 1px; }
-  .proof-item { padding: 40px 20px; }
-  .proof-num { font-size: clamp(48px, 14vw, 64px); }
+  .proof-stats { padding: 36px 20px; gap: 0; flex-wrap: nowrap; }
+  .proof-stat-item { padding: 0 16px; }
+  .proof-stat-label { font-size: 11px; }
+  .proof-stat-num { font-size: clamp(24px, 6vw, 36px); }
+  .proof-stat-div { height: 40px; }
+  .campaign-ribbon { padding: 28px 20px; }
+  .campaign-ribbon-inner { gap: 20px; }
+  .campaign-ribbon-badge { width: 76px; height: 76px; font-size: 11px; }
+  .campaign-ribbon-main { font-size: clamp(28px, 8vw, 44px); }
+  .campaign-ribbon-sub { font-size: 12px; }
 
   .types-grid {
     grid-template-columns: 1fr;
@@ -1717,32 +1775,28 @@ body.dark .hero-stats { background: rgba(31,26,20,0.6); }
 
 <!-- ============ PROOF ============ -->
 <section class="proof fade-in">
-  <div class="proof-grid">
-    <div class="proof-item">
-      <svg class="proof-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.3">
-        <circle cx="18" cy="13" r="9"/>
-        <path d="M13 20l-3 13 8-5 8 5-3-13"/>
-      </svg>
-      <div class="proof-num">15<span class="unit">年</span></div>
-      <div class="proof-label">形成外科専門医として<br>積み重ねた臨床経験</div>
+  <div class="proof-stats">
+    <div class="proof-stat-item">
+      <div class="proof-stat-label">形成外科</div>
+      <div class="proof-stat-num">15<span class="proof-stat-unit">年</span></div>
     </div>
-    <div class="proof-item">
-      <svg class="proof-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.3">
-        <circle cx="13" cy="13" r="4"/>
-        <circle cx="25" cy="14" r="3.5"/>
-        <path d="M5 28c0-4 4-7 8-7s8 3 8 7"/>
-        <path d="M19 25c0-3 3-5 5-5s5 2 5 5"/>
-      </svg>
-      <div class="proof-num">2,000<span class="unit">件+</span></div>
-      <div class="proof-label">目元・クマ治療の<br>豊富な施術実績</div>
+    <div class="proof-stat-div"></div>
+    <div class="proof-stat-item">
+      <div class="proof-stat-label">美容外科</div>
+      <div class="proof-stat-num">10<span class="proof-stat-unit">年</span></div>
     </div>
-    <div class="proof-item">
-      <svg class="proof-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.3">
-        <path d="M18 3L6 9v9c0 7 5 13 12 15 7-2 12-8 12-15V9z"/>
-        <path d="M13 18l3 3 7-7"/>
-      </svg>
-      <div class="proof-num">70<span class="unit">%OFF</span></div>
-      <div class="proof-label">開業記念キャンペーン<br>特別価格を実施中</div>
+    <div class="proof-stat-div"></div>
+    <div class="proof-stat-item">
+      <div class="proof-stat-label">目元施術</div>
+      <div class="proof-stat-num">2,000<span class="proof-stat-unit">件超</span></div>
+    </div>
+  </div>
+  <!-- キャンペーンリボン -->
+  <div class="campaign-ribbon">
+    <div class="campaign-ribbon-inner">
+      <div class="campaign-ribbon-badge">開業記念キャンペーン</div>
+      <div class="campaign-ribbon-main">最大<span class="campaign-ribbon-num">70</span><span class="campaign-ribbon-pct">%</span> OFF</div>
+      <div class="campaign-ribbon-sub">全顔モニター対象 ― 期間限定特別価格</div>
     </div>
   </div>
 </section>
