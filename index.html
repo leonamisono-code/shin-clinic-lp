@@ -287,6 +287,11 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   display:block;width:40px;height:1px;
   background:var(--gold);margin:16px auto 0;
 }
+.types-scroll-hint{
+  display:none;
+  font-size:11px;letter-spacing:.16em;color:var(--text-muted);
+  margin-top:12px;
+}
 
 /* ===== TYPES / KUMA ===== */
 .types-grid{
@@ -625,8 +630,23 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   .campaign-cta{width:100%;padding:14px}
   .sec{padding:48px 18px}
   .sec-head{margin-bottom:32px}
-  .types-grid{grid-template-columns:1fr;gap:10px}
-  .types-grid .type-wide{grid-column:span 1}
+  .types-scroll-hint{display:block}
+  .types-grid{
+    display:flex;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    gap:10px;
+    margin-left:-18px;margin-right:-18px;
+    padding:0 18px 12px;
+    scrollbar-width:none;
+  }
+  .types-grid::-webkit-scrollbar{display:none}
+  .types-grid .type-card{
+    flex:0 0 78vw;
+    scroll-snap-align:start;
+  }
+  .types-grid .type-wide{grid-column:unset;flex:0 0 78vw}
   .menu-grid{grid-template-columns:1fr;gap:10px}
   .doctor-content{margin-top:0}
   .cta-wrap{padding:52px 18px}
@@ -759,6 +779,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
       <h2 class="sec-title">あなたのクマは、どのタイプ？</h2>
       <p class="sec-lead">クマには5種類あり、原因も治療法もまったく異なります。Shin clinicでは精密診断で最適なアプローチを導き出します。</p>
       <span class="gold-line"></span>
+      <p class="types-scroll-hint">← スワイプして確認 →</p>
     </div>
     <div class="types-grid">
       <div class="type-card type-wide">
