@@ -112,10 +112,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
 .brand-logo {
-  width: 34px; height: 34px;
+  width: 38px; height: 38px;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
+.brand-logo img { width: 100%; height: 100%; object-fit: contain; }
 .brand-logo svg { width: 100%; height: 100%; }
 .brand-name {
   display: flex; align-items: center; gap: 14px;
@@ -2158,11 +2159,7 @@ body.dark .hero-stats { background: rgba(31,26,20,0.6); }
     <div class="footer-brand">
       <a href="#" class="brand">
         <div class="brand-logo">
-          <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
-            <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="1.4" style="color: var(--primary-deep)"/>
-            <path d="M16 38 C 22 30, 30 26, 40 24 C 36 30, 30 36, 20 40 Z" fill="currentColor" style="color: var(--primary-deep)"/>
-            <path d="M26 42 C 32 34, 40 30, 50 28 C 46 34, 40 40, 30 44 Z" fill="currentColor" style="color: var(--primary-deep); opacity: 0.55"/>
-          </svg>
+          <img src="assets/logo.png" alt="Shin clinic">
         </div>
         <div class="brand-name">
           <span class="jp">Shin clinic</span>
