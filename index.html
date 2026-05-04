@@ -126,7 +126,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .hero-mobile-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:65% top}
 .hero-mobile-overlay{
   position:absolute;inset:0;
-  background:linear-gradient(to bottom,rgba(0,0,0,.35) 0%,rgba(0,0,0,.1) 30%,rgba(0,0,0,.5) 70%,rgba(0,0,0,.75) 100%);
+  background:linear-gradient(to bottom,rgba(0,0,0,.4) 0%,rgba(0,0,0,.28) 40%,rgba(0,0,0,.55) 65%,rgba(0,0,0,.82) 100%);
 }
 .hero-mobile-logo{
   position:absolute;top:20px;left:20px;z-index:2;
@@ -172,6 +172,20 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 }
 .hero-mobile-stat:last-child{border-bottom:none}
 .hero-mobile-stat svg{width:16px;height:16px;color:var(--gold);flex-shrink:0}
+.hero-mobile-cta{
+  display:flex;align-items:center;justify-content:center;
+  width:100%;padding:16px;margin-top:16px;
+  background:linear-gradient(135deg,var(--gold),var(--gold-deep));
+  color:#fff;font-size:14px;font-weight:600;letter-spacing:.1em;
+  border-radius:var(--r);
+  box-shadow:0 6px 20px rgba(139,110,50,.4);
+  position:relative;overflow:hidden;
+}
+.hero-mobile-cta::after{
+  content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.3),transparent);
+  transform:skewX(-20deg);animation:shine 3s ease-in-out infinite;
+}
 
 /* ===== STATS BAR ===== */
 .stats-bar{
@@ -627,7 +641,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 <!-- ===== HEADER ===== -->
 <header class="header" id="header">
   <a href="#top" class="brand">
-    <div class="brand-mark"><img src="assets/logo.png?v=3" alt="Shin clinic"></div>
+    <div class="brand-mark"><img src="assets/logo.png?v=4" alt="Shin clinic"></div>
     <div class="brand-text">
       <span class="name">Shin clinic 銀座</span>
       <span class="sub">美容外科・美容皮膚科</span>
@@ -672,7 +686,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
     <img class="hero-mobile-img" src="assets/fv-hero.png" alt="Shin clinic 銀座">
     <div class="hero-mobile-overlay"></div>
     <div class="hero-mobile-logo">
-      <img src="assets/logo.png?v=3" alt="Shin clinic">
+      <img src="assets/logo.png?v=4" alt="Shin clinic">
       <div class="hero-mobile-logo-text">
         <span class="name">Shin clinic 銀座</span>
         <span class="sub">美容外科・美容皮膚科</span>
@@ -696,6 +710,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
           <span>医学博士 / 形成外科専門医</span>
         </div>
       </div>
+      <a href="https://reservation.medical-force.com/c/6db3a818c23d4622bfce2e765c2ba11a" target="_blank" class="hero-mobile-cta">無料カウンセリングを予約する →</a>
     </div>
   </div>
 </section>
@@ -1051,7 +1066,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   <div class="footer-inner">
     <div class="footer-brand">
       <a href="#top" class="brand">
-        <div class="brand-mark"><img src="assets/logo.png?v=3" alt="Shin clinic"></div>
+        <div class="brand-mark"><img src="assets/logo.png?v=4" alt="Shin clinic"></div>
         <div class="brand-text">
           <span class="name">Shin clinic 銀座</span>
           <span class="sub">美容外科・美容皮膚科</span>
